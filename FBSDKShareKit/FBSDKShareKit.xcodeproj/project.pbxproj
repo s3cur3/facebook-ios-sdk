@@ -264,8 +264,6 @@
 		EAC370A31AAE3A9C000F0F04 /* FBSDKGameRequestContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC370A21AAE3A9C000F0F04 /* FBSDKGameRequestContentTests.m */; };
 		F462DBF223B9526200FFCECA /* FBSDKCoreKit+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 890414751A647DB200617215 /* FBSDKCoreKit+Internal.h */; };
 		F462DBFC23B9526300FFCECA /* FBSDKCoreKit+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 890414751A647DB200617215 /* FBSDKCoreKit+Internal.h */; };
-		F46FA683245362880060C902 /* Enums+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FA682245362880060C902 /* Enums+Extensions.swift */; };
-		F46FA684245362880060C902 /* Enums+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FA682245362880060C902 /* Enums+Extensions.swift */; };
 		F4D7A84724520A6700A12EE5 /* FakeSharingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D7A84624520A6700A12EE5 /* FakeSharingDelegate.m */; };
 		F4E7517223EA18C20061BBFC /* FBSDKMessageDialogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E7516823EA18C10061BBFC /* FBSDKMessageDialogTests.m */; };
 		F4E7517D23EA19010061BBFC /* FBSDKSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E7517423EA19000061BBFC /* FBSDKSendButton.m */; };
@@ -1137,7 +1135,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D46C6061A11E5D800A0DDB6 /* Build configuration list for PBXNativeTarget "FBSDKShareKit" */;
 			buildPhases = (
-				F464F8DF2487131300D27034 /* Run Swiftlint */,
 				9D46C5EB1A11E5D800A0DDB6 /* Sources */,
 				9D46C5EC1A11E5D800A0DDB6 /* Frameworks */,
 				9D46C5ED1A11E5D800A0DDB6 /* Headers */,
@@ -1366,24 +1363,6 @@
 			shellPath = /bin/sh;
 			shellScript = "../scripts/xcode/build-universal-framework.sh\n";
 		};
-		F464F8DF2487131300D27034 /* Run Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swiftlint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint --config ../.swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1416,7 +1395,6 @@
 				81A07EE61D1A2E6A0041A29C /* FBSDKShareVideo.m in Sources */,
 				F4E7518423EA19010061BBFC /* FBSDKMessageDialog.m in Sources */,
 				81A07EE81D1A2E6A0041A29C /* FBSDKLikeObjectType.m in Sources */,
-				F46FA684245362880060C902 /* Enums+Extensions.swift in Sources */,
 				81A07EE91D1A2E6A0041A29C /* FBSDKShareLinkContent.m in Sources */,
 				B331E2192208C94800F3E4EE /* FBSDKShareExtension.m in Sources */,
 				81A07EEA1D1A2E6A0041A29C /* FBSDKSharePhotoContent.m in Sources */,
@@ -1475,7 +1453,6 @@
 				896DE2131A9E280900195731 /* FBSDKShareVideo.m in Sources */,
 				F4E7518323EA19010061BBFC /* FBSDKMessageDialog.m in Sources */,
 				89D05A711A9FE02400609300 /* FBSDKLikeObjectType.m in Sources */,
-				F46FA683245362880060C902 /* Enums+Extensions.swift in Sources */,
 				89CE02E61A3F56470033C9CA /* FBSDKShareLinkContent.m in Sources */,
 				B331E2182208C94800F3E4EE /* FBSDKShareExtension.m in Sources */,
 				89FC9C701A3FA1E00001910E /* FBSDKSharePhotoContent.m in Sources */,
@@ -1592,11 +1569,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819043CB1D261A7900B2E437 /* FBSDKShareKit-Dynamic.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -1604,10 +1583,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819043CB1D261A7900B2E437 /* FBSDKShareKit-Dynamic.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
@@ -1669,11 +1650,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819043CE1D261A7900B2E437 /* FBSDKShareKit.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -1681,10 +1664,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819043CE1D261A7900B2E437 /* FBSDKShareKit.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
@@ -1692,7 +1677,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819043CF1D261A7900B2E437 /* FBSDKShareKitTests.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 			};
 			name = Debug;
@@ -1701,7 +1685,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819043CF1D261A7900B2E437 /* FBSDKShareKitTests.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 			};
 			name = Release;

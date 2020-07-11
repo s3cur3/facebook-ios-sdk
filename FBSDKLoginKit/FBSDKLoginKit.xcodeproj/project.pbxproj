@@ -135,10 +135,6 @@
 		F462DC0F23B958E100FFCECA /* FBSDKLoginKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9DB8DE1A114E500086167B /* FBSDKLoginKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F462DC1023B95BA600FFCECA /* FBSDKLoginButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D65ACA61A803FF200E375C2 /* FBSDKLoginButton.h */; };
 		F462DC1123B95BA700FFCECA /* FBSDKLoginButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D65ACA61A803FF200E375C2 /* FBSDKLoginButton.h */; };
-		F46FA65A245347580060C902 /* FBLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FA659245347570060C902 /* FBLoginButton.swift */; };
-		F46FA65B245347580060C902 /* FBLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FA659245347570060C902 /* FBLoginButton.swift */; };
-		F46FA65D245347820060C902 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FA65C245347820060C902 /* LoginManager.swift */; };
-		F46FA65E245347820060C902 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FA65C245347820060C902 /* LoginManager.swift */; };
 		F4ECC67923EE2094005DBF05 /* FBSDKCoreKitImport.h in Headers */ = {isa = PBXBuildFile; fileRef = F4ECC66F23EE2094005DBF05 /* FBSDKCoreKitImport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4ECC67A23EE2094005DBF05 /* FBSDKCoreKitImport.h in Headers */ = {isa = PBXBuildFile; fileRef = F4ECC66F23EE2094005DBF05 /* FBSDKCoreKitImport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4ECC67B23EE2094005DBF05 /* FBSDKCoreKitImport.h in Headers */ = {isa = PBXBuildFile; fileRef = F4ECC66F23EE2094005DBF05 /* FBSDKCoreKitImport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -769,7 +765,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D9DB8EF1A114E500086167B /* Build configuration list for PBXNativeTarget "FBSDKLoginKit" */;
 			buildPhases = (
-				F464F8D5248712B500D27034 /* Run Swiftlint */,
 				9D9DB8D41A114E500086167B /* Sources */,
 				9D9DB8D51A114E500086167B /* Frameworks */,
 				9D9DB8D61A114E500086167B /* Headers */,
@@ -988,24 +983,6 @@
 			shellPath = /bin/sh;
 			shellScript = "../scripts/xcode/build-universal-framework.sh\n";
 		};
-		F464F8D5248712B500D27034 /* Run Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swiftlint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint --config ../.swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1039,9 +1016,7 @@
 				818EB4261D1A283100252851 /* FBSDKLoginCompletion.m in Sources */,
 				818EB4271D1A283100252851 /* FBSDKLoginConstants.m in Sources */,
 				818EB4281D1A283100252851 /* FBSDKLoginError.m in Sources */,
-				F46FA65E245347820060C902 /* LoginManager.swift in Sources */,
 				818EB4291D1A283100252851 /* FBSDKLoginManager.m in Sources */,
-				F46FA65B245347580060C902 /* FBLoginButton.swift in Sources */,
 				818EB42A1D1A283100252851 /* FBSDKLoginManagerLoginResult.m in Sources */,
 				818EB42B1D1A283100252851 /* FBSDKLoginTooltipView.m in Sources */,
 				818EB42C1D1A283100252851 /* FBSDKLoginUtility.m in Sources */,
@@ -1062,9 +1037,7 @@
 				6B5D2DEF1A8EB1D200D3EF09 /* FBSDKLoginCompletion.m in Sources */,
 				9D03E8351A72DF5800207493 /* FBSDKLoginConstants.m in Sources */,
 				6B5D2DEA1A8D91B200D3EF09 /* FBSDKLoginError.m in Sources */,
-				F46FA65D245347820060C902 /* LoginManager.swift in Sources */,
 				9D03E8221A72D7E700207493 /* FBSDKLoginManager.m in Sources */,
-				F46FA65A245347580060C902 /* FBLoginButton.swift in Sources */,
 				9D03E8261A72D89100207493 /* FBSDKLoginManagerLoginResult.m in Sources */,
 				9DBA6A2A1A80252F00B4DE6A /* FBSDKLoginTooltipView.m in Sources */,
 				9D03E82B1A72DCE300207493 /* FBSDKLoginUtility.m in Sources */,
@@ -1182,6 +1155,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81B71EAB1D1A277300933E93 /* FBSDKLoginKit-Dynamic.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -1189,6 +1164,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81B71EAB1D1A277300933E93 /* FBSDKLoginKit-Dynamic.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
@@ -1222,6 +1199,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81B71EAC1D1A277300933E93 /* FBSDKLoginKit.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -1229,6 +1209,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81B71EAC1D1A277300933E93 /* FBSDKLoginKit.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
@@ -1236,7 +1219,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 812E0D1C1D23843800291B71 /* FBSDKLoginKitTests.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
 			name = Debug;
 		};
@@ -1244,7 +1226,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 812E0D1C1D23843800291B71 /* FBSDKLoginKitTests.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
 			name = Release;
 		};
